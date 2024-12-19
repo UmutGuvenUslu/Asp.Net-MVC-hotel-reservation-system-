@@ -1,0 +1,94 @@
+﻿@model OtelZone.Entity.Entities.User
+
+@{
+    Layout = "_AdminPanelLayout";
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm ">
+        </div>
+        <div class="col-sm mt-5">
+
+
+
+
+            <div class="card text-center">
+                <div class="card-header ">
+                    Kullanıcı Düzenle
+                </div>
+                <div class="card-body mt-3">
+                    <form method="post" asp-action="kullaniciduzenle" asp-controller="Giris" asp-route-email="@Model.UserEmail">
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">İsim</label>
+                            <input type="text" asp-for="@Model.UserName" class="form-control mt-2" placeholder="@Model.UserName">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">Soyisim</label>
+                            <input type="text" class="form-control mt-2" placeholder="@Model.UserSurname" asp-for="@Model.UserSurname">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Email</label>
+                            <input type="email" class="form-control mt-2" placeholder="@Model.UserEmail" asp-for="@Model.UserEmail">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Şifre</label>
+                            <input type="password" class="form-control mt-2" placeholder="Yeni Şifre Girin" asp-for="@Model.UserPassword">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Rol</label>
+                            <input type="text" class="form-control mt-2" placeholder="@Model.UserRole" asp-for="@Model.UserRole">
+                        </div>
+
+
+                        <input type="submit" class="btn btn-primary mt-4" value="Düzenle" />
+                    </form>
+
+                </div>
+                <div class="card-footer text-muted">
+                    Zaten Üye Misin? - <a asp-controller="Giris" asp-action="Index">Giris Yap</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

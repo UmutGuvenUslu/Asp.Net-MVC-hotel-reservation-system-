@@ -1,0 +1,401 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Site İconu-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>OtelZone-@ViewData["Title"]</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/admin.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cityDropdown').change(function () {
+                var cityId = $(this).val(); // Seçilen CityId
+                if (cityId) {
+                    $.ajax({
+                        url: '@Url.Action("GetDistrictsByCityId", "Hotel")',
+                        data: { cityId: cityId },
+                        type: 'POST',
+                        success: function (data) {
+                            // Gelen veriyi kontrol et
+                            var districtDropdown = $('#districtDropdown');
+                            districtDropdown.empty(); // Önceki değerleri temizle
+
+                            if (data && data.length > 0) {
+                                districtDropdown.append('<option value="">İlçe Seç</option>'); // İlk seçeneği ekle
+
+                                // Gelen verilere göre districtleri ekle
+                                $.each(data, function (index, district) {
+
+                                    districtDropdown.append('<option value="' + district.districtId + '">' + district.districtName + '</option>');
+                                });
+                            } else {
+                                districtDropdown.append('<option value="">No districts available</option>');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error: " + error);
+                        }
+                    });
+                } else {
+                    $('#districtDropdown').empty();
+                    $('#districtDropdown').append('<option value="">İlçe Seç</option>');
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body id="page-top">
+    @Html.AntiForgeryToken()
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="index" asp-controller="anasayfa">
+                <div class="sidebar-brand-icon ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                </div>
+                <div class="sidebar-brand-text mx-3">OtelZone <sub>.</sub></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" asp-action="Index" asp-controller="AdminPanel">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Kontrol Paneli</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+          
+          
+
+           
+
+
+            <!-- Kullanıcı Listesi -->
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Giris" asp-action="uyelistele">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Kullanıcı Listesi</span>
+                </a>
+                <!-- Otel Ekle -->
+            <li class="nav-item">
+                <a class="nav-link" asp-action="AdminRezerveListe" asp-controller="Rezervasyon">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Rezervasyon Listesi</span>
+                </a>
+            </li>
+            </li>
+            <!-- Otel Ekle -->
+            <li class="nav-item">
+                <a class="nav-link" asp-action="otelekle" asp-controller="Hotel">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Otel Ekle</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Otel Listele</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+
+                        <form id="myForm" method="post" asp-action="adminotellistele" asp-controller="AdminPanel">
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12 mb-3">
+                                <input class="form-control form-control-sm" name="otelname" type="text" placeholder="Otel Bul!" />
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <div class="sidebar-heading">
+                                    Şehir
+                                </div>
+                                            @Html.DropDownList("CityId", (SelectList)ViewBag.Cities, "Şehir Seç",
+                                                     new { @class = "form-control form-control-sm", @id = "cityDropdown" })
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <div class="sidebar-heading">
+                                    İlçe
+                                </div>
+                                            @Html.DropDownList("DistrictId", new SelectList(Enumerable.Empty<SelectListItem>()), "İlçe Seç",
+                                                     new { @class = "form-control form-control-sm", @id = "districtDropdown" })
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <div class="sidebar-heading">
+                                    Giriş Tarihi
+                                </div>
+                                <input class="form-control form-control-sm" name="otelgiris" type="date" />
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <div class="sidebar-heading">
+                                    Çıkış Tarihi
+                                </div>
+                                <input class="form-control form-control-sm" name="otelcikis" type="date" />
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-success btn-sm" id="submitButton">Ara</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            
+    </div>
+    </div>
+    </li>
+
+
+            <!-- Otel Listele -->
+           
+
+
+
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+          
+
+
+
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Arama Kutusu -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Bir Kelime Yazın..."
+                                   aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Arama Kutusu Dropdown (Sadece XS de Görünür) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                 aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                               placeholder="Bir Kelime Yazın..." aria-label="Search"
+                                               aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Bildirim -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">1+</span>
+                            </a>
+                            <!-- Dropdown - Bildirimler -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Bildirimler
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Mayıs 1,2024</div>
+                                        <span class="font-weight-bold">Aylık Rapor Çıkartıldı</span>
+                                    </div>
+                                </a>
+
+
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Tüm Bildirimleri Göster</a>
+                            </div>
+                        </li>
+
+
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
+                                <img class="img-profile rounded" src="~/images/icon-admin.png">
+
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Ayarlar
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Aktivite Kaydı
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Çıkış Yap
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                   
+
+                    @RenderBody()
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; OtelZone 2024</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Çıkış Yap</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Çıkış Yapmak İstediğinizden Emin Misiniz?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Vazgeç</button>
+                        <a class="btn btn-primary" asp-controller="Giris" asp-action="CikisYap">Çıkış Yap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="~/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="~/js/demo/chart-area-demo.js"></script>
+        <script src="~/js/demo/chart-pie-demo.js"></script>
+
+</body>
+<script>
+    document.getElementById("myForm").onsubmit = function() {
+      
+            return true; // Onay verildiyse gönder
+       
+    }
+</script>
+
+</html>

@@ -1,0 +1,17 @@
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.Business.deps.json
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.Business.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.Business.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.DataAccess.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.Entity.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.DataAccess.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\bin\Debug\net8.0\OtelZone.Entity.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.csproj.AssemblyReference.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.AssemblyInfoInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.AssemblyInfo.cs
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.csproj.CoreCompileInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.C3335537.Up2Date
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\refint\OtelZone.Business.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\OtelZone.Business.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Business\obj\Debug\net8.0\ref\OtelZone.Business.dll

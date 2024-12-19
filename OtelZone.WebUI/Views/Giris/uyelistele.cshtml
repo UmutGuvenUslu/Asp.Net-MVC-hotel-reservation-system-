@@ -1,0 +1,55 @@
+﻿@model List<OtelZone.Entity.Entities.User>
+
+@{
+    Layout = "_AdminPanelLayout";
+}
+
+
+<div class="d-flex flex-column ">
+    <h2 class="p-2 text-center">Kullanıcı Listesi</h2>
+
+    <table class="table table-hover p-2">
+    <thead>
+        <tr>
+                <th scope="col">
+
+                </th>
+            <th scope="col">İsim</th>
+            <th scope="col">Soyisim</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Üyelik Aktifliği</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Kayıt Zamanı</th>
+              
+        </tr>
+    </thead>
+    <tbody>
+      
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+                    <th scope="row">
+
+                        <a asp-action="kullanicisil" asp-controller="Giris" asp-route-email="@item.UserEmail"><button type="button" class="btn btn-danger btn-sm">Sil</button></a>
+                        <a asp-action="kullaniciduzenle" asp-controller="Giris" asp-route-email="@item.UserEmail"> <button type="button" class="btn btn-warning btn-sm">Düzenle</button></a>
+
+                    </th>
+                <td>@item.UserName</td>
+                <td>@item.UserSurname</td>
+                <td>@item.UserEmail</td>
+                <td>@item.UserPhone</td>
+                <td>@item.UserIsActive</td>
+                <td>@item.UserRole</td>
+                <td>@item.CreatedDate</td>
+
+                 
+        
+            </tr>
+
+        }
+     
+    </tbody>
+</table>
+</div>

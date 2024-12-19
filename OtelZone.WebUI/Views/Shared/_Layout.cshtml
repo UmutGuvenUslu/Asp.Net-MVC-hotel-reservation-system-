@@ -1,0 +1,100 @@
+﻿
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>OtelZone-@ViewData["Title"]</title>
+    <!-- Site İconu-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Ana CSS (includes Bootstrap)-->
+    <link href="~/css/site.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <!-- NavBar-->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a asp-action="index" asp-controller="anasayfa"><img class="navbar-brand" src="~/images/logo.png" /></a>
+            <div class="navbutonlar">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a>Hoşgeldin  @User.Identity.Name</a>
+                    <a class="btn btn-primary" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
+                    <a class="btn btn-outline-secondary ml-5" asp-controller="Giris" asp-action="CikisYap">Çıkış Yap</a>
+                    
+                }
+                else if (User.IsInRole("Müşteri"))
+                {
+                    
+                    <a>Hoşgeldin  @User.Identity.Name</a>
+                    <a class="btn btn-primary" asp-controller="Rezervasyon" asp-action="Rezervasyonlist">Rezervasyon Listesi</a>
+                    <a class="btn btn-outline-secondary ml-5" asp-controller="Giris" asp-action="CikisYap">Çıkış Yap</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary" asp-controller="Giris" asp-action="Index">Giriş Yap</a>
+                    <a class="btn btn-outline-secondary ml-5" asp-controller="Giris" asp-action="uyeol">Kayıt Ol</a>
+                }
+
+
+
+
+              
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Burada Diğer Viewler Render Olacak-->
+    <div class="container-fluid p-0 my-3">
+
+        @RenderBody()
+
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer bg-light text-center mx-2" style="z-index:9999;">
+     
+                
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a asp-controller="anasayfa" asp-action="hakkımızda">Hakkımızda</a></li>
+                        
+
+                        <li class="list-inline-item"><a asp-action="kullanimkosullari" asp-controller="anasayfa">Kullanım Koşulları</a></li>
+                        <br />
+                    
+                        <li class="list-inline-item"><a asp-action="gizlilikpolitikasi" asp-controller="anasayfa"> Gizlilik Politikası </a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Otel Rezervasyon Sistemi 2024. Tüm Hakları Saklıdır.</p>
+             
+     
+    </footer>
+
+
+
+
+
+
+    <!-- Scriptler-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+ 
+
+
+
+
+
+</body>
+</html>

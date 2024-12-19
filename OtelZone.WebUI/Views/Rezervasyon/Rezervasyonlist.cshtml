@@ -1,0 +1,71 @@
+﻿@model IEnumerable<OtelZone.Entity.Entities.Rezervation>
+
+
+<div class="container">
+<h1 class="mt-4">Benim Rezervasyonlarım</h1>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Giriş Tarihi</th>
+            <th>Çıkış Tarihi</th>
+            <th>Toplam Fiyat</th>
+            <th>Durum</th>
+            <th>Oluşturulma Tarihi</th>
+            <th>Otel İsmi</th>
+            <th>Aksiyon</th> <!-- İptal Et başlığı için eklenen sütun -->
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            int counter = 1;
+            foreach (var rezervasyon in Model)
+            {
+                <tr>
+                    <td>@counter</td>
+                    <td>@rezervasyon.CheckInDate.ToString("dd.MM.yyyy")</td>
+                    <td>@rezervasyon.CheckOutDate.ToString("dd.MM.yyyy")</td>
+                    <td>@rezervasyon.TotalPrice.ToString("C")</td>
+                    <td>
+                        @if (rezervasyon.RezervationStatus == "Admin Onayı Bekleniyor")
+                        {
+                            <span class="badge bg-warning text-dark">@rezervasyon.RezervationStatus</span>
+                        }
+                        else if (rezervasyon.RezervationStatus == "Onaylandı")
+                        {
+                            <span class="badge bg-success">@rezervasyon.RezervationStatus</span>
+                        }
+                        else if (rezervasyon.RezervationStatus == "İptal Edildi")
+                        {
+                            <span class="badge bg-danger">@rezervasyon.RezervationStatus</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@rezervasyon.RezervationStatus</span>
+                        }
+                    </td>
+                    <td>@rezervasyon.RezervationCreatedDate.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>@rezervasyon.HotelName</td>
+                    <td>
+                        @if (rezervasyon.RezervationStatus != "İptal Edildi") 
+                        {
+                            <a asp-action="Cancel" asp-route-id="@rezervasyon.RezervationId" class="btn btn-sm btn-danger">
+                                İptal Et
+                            </a>
+                        }
+                    </td>
+                </tr>
+                counter++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7" class="text-center">Henüz rezervasyonunuz yok.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

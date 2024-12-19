@@ -1,0 +1,131 @@
+﻿ @model List<OtelZone.Entity.Entities.Room>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    Layout = "_AdminPanelLayout";
+}
+
+<style>
+    body {
+        background-color: #eee;
+    }
+
+    .title {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+
+    .card-block {
+        font-size: 1em;
+        position: relative;
+        margin: 0;
+        padding: 1em;
+        border: none;
+        border-top: 1px solid rgba(34, 36, 38, .1);
+        box-shadow: none;
+    }
+
+    .card {
+        font-size: 1em;
+        overflow: hidden;
+        padding: 5;
+        border: none;
+        border-radius: .28571429rem;
+        box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+        margin-top: 20px;
+    }
+
+    .carousel-indicators li {
+        border-radius: 12px;
+        width: 12px;
+        height: 12px;
+        background-color: #404040;
+    }
+
+    .carousel-indicators li {
+        border-radius: 12px;
+        width: 12px;
+        height: 12px;
+        background-color: #404040;
+    }
+
+    .carousel-indicators .active {
+        background-color: white;
+        max-width: 12px;
+        margin: 0 3px;
+        height: 12px;
+    }
+
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    }
+
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    }
+
+    lex-direction: column;
+    }
+
+    .btn {
+        margin-top: auto;
+    }
+
+</style>
+
+
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+    <div class="card mx-auto" style="max-width: 1200px; border: 1px solid #ccc;">
+        <div class="row g-0">
+
+            <div class="col-md-5">
+                <img src="@item.RoomImageUrl" class="img-fluid h-100" style="object-fit: cover;" />
+            </div>
+
+            <div class="col-md-7 d-flex flex-column px-3">
+
+                <div class="card-block px-3">
+                    <h4 class="card-title">@item.RoomType</h4>
+                    <p class="card-text small">
+                        @item.RoomDesc
+                    </p>
+                </div>
+
+                <div class="mt-auto ">
+                    <div class="card-footer d-flex  justify-content-between align-items-center">
+                        <div class="adresler">
+                            <p class="card-text small mb-0">Müsaitlik: @item.RoomIsAvilable</p>
+                            <p class="card-text small"> Yatak Sayısı: @item.BedCount / Fiyat: @item.Price</p>
+                        </div>
+                        
+                        <form method="post" asp-action="odasil" asp-controller="AdminPanel">
+                            <input type="hidden" name="HotelId" value="@item.HotelId" />
+                            <button type="submit" class="btn btn-danger">Sil</button>
+                        </form>
+                        <a asp-action="odaduzenle" asp-controller="AdminPanel" asp-route-id="@item.RoomId"> <button type="button" class="btn btn-warning btn-sm">Düzenle</button></a>
+                      
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+
+
+
+
+

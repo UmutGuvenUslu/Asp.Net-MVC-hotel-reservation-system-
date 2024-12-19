@@ -1,0 +1,18 @@
+﻿@{
+    var roomId = ViewBag.RoomId;
+    var checkInDate = ViewBag.CheckInDate;
+    var checkOutDate = ViewBag.CheckOutDate;
+}
+
+<h2>Rezervasyon Çakışması</h2>
+<p>Seçtiğiniz tarihlerde çakışma var. Devam etmek istiyor musunuz?</p>
+<p>Önerilen tarih aralıkları:</p>
+<!-- Önerilen tarih aralıklarını buraya ekleyin -->
+
+<form asp-action="CreateReservation" method="post">
+    <input type="hidden" name="roomId" value="@roomId" />
+    <input type="hidden" name="checkInDate" value="@checkInDate.ToString("yyyy-MM-dd")" />
+    <input type="hidden" name="checkOutDate" value="@checkOutDate.ToString("yyyy-MM-dd")" />
+    <button type="submit">Evet, bu tarihlerle devam et</button>
+</form>
+<a href="@Url.Action("Index", "Rezervasyon")">Hayır, geri dön</a>

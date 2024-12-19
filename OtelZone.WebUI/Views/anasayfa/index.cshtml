@@ -1,0 +1,292 @@
+﻿<head>
+    <style>
+        .modal .close {
+            font-size: 1.5rem;
+            color: #333;
+            opacity: 0.8;
+            transition: color 0.3s, transform 0.3s;
+            border: none;
+            background: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+            .modal .close:hover {
+                color: #ff5e5e;
+                transform: rotate(90deg);
+                opacity: 1;
+            }
+
+        .modal .modal-title {
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+    </style>
+
+</head>
+
+    <!-- Masthead-->
+<header class="masthead" style="background-image:url('images/masterhead.jpg')" ;>
+
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">Hoşgeldin <br /> Hemen Otel Ara!</h1>
+
+                            <!-- Otel Arama input-->
+                    <form id="myForm" method="post" asp-action="Index" asp-controller="Hotel">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col">
+                                <input class="form-control form-control-lg" name="otelname" type="text" placeholder="Otel Bul!" />
+                            </div>
+                            <div class="d-flex justify-content-between gap-1">
+                                <div class="form-group">
+                                    <label class="mt-2" for="CityId">Otel Şehri</label>
+                                    @Html.DropDownList("CityId", (SelectList)ViewBag.Cities, "Şehir Seç", new { @class = "form-control", @id = "cityDropdown" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="mt-2" for="DistrictId">Otel İlçe</label>
+                                    @Html.DropDownList("DistrictId", new SelectList(Enumerable.Empty<SelectListItem>()), "İlçe Seç", new { @class = "form-control", @id = "districtDropdown" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="mt-2" for="otelgiris">Giriş Tarihi</label>
+                                    <input class="form-control form-control-md" name="otelgiris" type="date" id="otelgiris" min="<%= @DateTime.Now.ToString(" yyyy-MM-dd") %>" onchange="updateCikisDate(); validateGirisDate();" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="mt-2" for="otelcikis">Çıkış Tarihi</label>
+                                    <input class="form-control form-control-md" name="otelcikis" type="date" id="otelcikis" min="<%= @DateTime.Now.ToString(" yyyy-MM-dd") %>" />
+                                </div>
+                            </div>
+                            <div class="d-flex m-4 container-fluid justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg btn-flex" id="submitButton">Ara</button>
+                            </div>
+                        </div>
+                    </form>
+
+                          
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Icons Grid-->
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi bi-credit-card m-auto text-primary"></i></div>
+                        <h3>Uygun Fiyat</h3>
+                        <p class="lead mb-0">Sitede Bulunan Tüm Oteller Sizin İçin En Uygun Fiyatları Verecektir!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi bi-eye m-auto text-primary"></i></div>
+                        <h3>Konfor Onaylı</h3>
+                        <p class="lead mb-0">Tüm Oteller Site Yöneticileri Tarafından Kalite Testi İle Özel Olarak Seçilmektedir!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex"><i class="bi bi-people m-auto text-primary"></i></div>
+                        <h3>Kullanımı Kolay</h3>
+                        <p class="lead mb-0">Tek Tıkla Otel Rezervasyonu Ve İptali!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Resimler-->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('images/bg-showcase-1.jpg'); background-size:contain; background-position: center;
+    background-repeat: no-repeat;"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Uygun Fiyat</h2>
+                <p class="lead mb-0">Konuklarımıza kaliteli bir konaklama deneyimi sunarken, bütçe dostu fiyatlarla en iyi seçenekleri sunuyoruz. İhtiyaçlarınıza uygun ekonomik odalarla, tatilinizin keyfini çıkarın, bütçenizi zorlamayın.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('images/bg-showcase-2.jpg'); background-size: contain; background-position: center;
+    background-repeat: no-repeat;"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Konfor Onaylı</h2>
+                <p class="lead mb-0">Müşteri memnuniyetini ön planda tutuyoruz! Otellerimizdeki her odada konfor ve kaliteyi garanti ediyoruz. Konforlu yataklar, temiz odalar ve eksiksiz hizmetle rahat bir konaklama deneyimi yaşayın.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('images/bg-showcase-3.png'); background-size: contain; background-position: center;
+    background-repeat: no-repeat;"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Kullanımı Kolay</h2>
+                <p class="lead mb-0">Web sitemiz, kullanıcı dostu tasarımıyla her yaştan misafire kolaylıkla hizmet sunar. Sade ve anlaşılır arayüzümüz sayesinde otel arama ve rezervasyon işlemleri sadece birkaç tıklama ile tamamlanır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials-->
+    <section class="testimonials text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Kullanıcılarımızın Yorumları...</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="~/images/foto2.jpg" alt="..." />
+                    <h5>SeyahatSever01</h5>
+                    <p class="font-weight-light mb-0">"Otel rezervasyon sistemini çok sevdim! Kullanıcı dostu arayüzü ve hızlı işlem yapma özelliği ile seyahat planlamalarımı çok daha kolay hale getiriyor. Ayrıca filtreleme seçenekleri sayesinde tam istediğim gibi bir otel bulabiliyorum. Harika bir deneyimdi!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="~/images/foto2.jpg" alt="..." />
+                        <h5>Fuatkeser</h5>
+                    <p class="font-weight-light mb-0">"Çocuklu bir aile olarak, bize uygun geniş odalar ve aile dostu oteller bulmak bazen zor olabiliyor. Ancak bu sistem tam anlamıyla hayat kurtarıcı! Detaylı açıklamalar ve kullanıcı yorumları sayesinde doğru oteli seçmek çok kolay oldu. Ayrıca müşteri hizmetlerinin ilgisi mükemmel. Kesinlikle tavsiye ederim!"
+                </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="~/images/foto1.png" alt="..." />
+                        <h5>MolderCompany</h5>
+                        <p class="font-weight-light mb-0">"İş seyahatlerimde zaman benim için çok önemli. Bu rezervasyon sistemi sayesinde dakikalar içinde otelimi seçip rezervasyonumu tamamlayabiliyorum. Güvenli ödeme sistemi ve rezervasyon onayının hızla e-posta olarak gelmesi gerçekten etkileyici. Teşekkürler!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+   
+@if (ViewBag.UyeGiris == true)
+{
+    <div class="modal fade show d-block" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Giriş Yapıldı</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Başarıyla Giriş Yapıldı
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+<script>
+    function closeModal() {
+        var modal = document.getElementById('exampleModalCenter');
+        modal.classList.remove('show', 'd-block'); // Bootstrap sınıflarını kaldır
+        modal.setAttribute('aria-hidden', 'true');
+                   setTimeout(() => {
+                       modal.style.display = "none";
+                     }, 500); // Efekt süresi kadar bekle
+
+
+
+            }
+
+</script>
+
+@* <script>
+    function updateCikisDate() {
+        var girisDate = document.getElementById('otelgiris').value;
+        var cikisDate = document.getElementById('otelcikis');
+
+        // Giriş tarihi seçildiğinde, çıkış tarihinin minimumu o gün + 1 olmalı
+        if (girisDate) {
+            cikisDate.min = girisDate;
+        }
+    }
+</script> *@
+<script>
+    // Sayfa yüklendiğinde günümüz tarihini al ve min değerlerini ayarla
+    window.onload = function() {
+        var currentDate = new Date().toISOString().split('T')[0]; // Bugünün tarihi
+        document.getElementById('otelgiris').min = currentDate;
+        document.getElementById('otelcikis').min = currentDate;
+    };
+
+    // Giriş tarihi değiştiğinde çıkış tarihini güncelle
+    function updateCikisDate() {
+        var girisDate = document.getElementById('otelgiris').value;
+        var cikisDate = document.getElementById('otelcikis');
+
+        // Giriş tarihi seçildiğinde, çıkış tarihinin minimumu o gün + 1 olmalı
+        if (girisDate) {
+            cikisDate.min = girisDate;
+        }
+    }
+
+    // Giriş tarihinin günümüz tarihinden önce olmasını engelle
+    function validateGirisDate() {
+        var girisDate = document.getElementById('otelgiris');
+        var currentDate = new Date().toISOString().split('T')[0]; // Bugünün tarihi
+
+        // Eğer kullanıcı günümüz tarihinden önce bir tarih seçmişse, onu günümüze çek
+        if (girisDate.value < currentDate) {
+            girisDate.value = currentDate;
+        }
+    }
+</script>
+<script>
+    document.getElementById("myForm").onsubmit = function() {
+     
+            return true; // Onay verildiyse gönder
+    
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cityDropdown').change(function () {
+            var cityId = $(this).val(); // Seçilen CityId
+            if (cityId) {
+                $.ajax({
+                    url: '@Url.Action("GetDistrictsByCityId", "Hotel")',
+                    data: { cityId: cityId },
+                    type: 'POST',
+                    success: function (data) {
+                        // Gelen veriyi kontrol et
+                        var districtDropdown = $('#districtDropdown');
+                        districtDropdown.empty(); // Önceki değerleri temizle
+
+                        if (data && data.length > 0) {
+                            districtDropdown.append('<option value="">İlçe Seç</option>'); // İlk seçeneği ekle
+
+                            // Gelen verilere göre districtleri ekle
+                            $.each(data, function (index, district) {
+
+                                districtDropdown.append('<option value="' + district.districtId + '">' + district.districtName + '</option>');
+                            });
+                        } else {
+                            districtDropdown.append('<option value="">No districts available</option>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error: " + error);
+                    }
+                });
+            } else {
+                $('#districtDropdown').empty();
+                $('#districtDropdown').append('<option value="">İlçe Seç</option>');
+            }
+        });
+    });
+</script>

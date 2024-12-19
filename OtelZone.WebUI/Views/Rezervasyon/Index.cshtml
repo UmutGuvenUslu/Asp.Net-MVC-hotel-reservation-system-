@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+
+@if(ViewBag.durum){
+
+
+    <h1>Rezervasyonun İletildi</h1>
+    <h3>Rezervasyon Durumunu Rezervasyon Listenden Takip Edebilirsin</h3>
+    <a asp-controller="Hotel" asp-action="Index"></a>
+
+
+}else{
+    <h1>Rezervasyonun İletilemedi</h1>
+    <h3>Bir aksaklık oluştu. Bilgileri Kontrol Edip Tekrar Dene.</h3>
+    <a asp-controller="Hotel" asp-action="Index"></a>
+
+}

@@ -1,0 +1,15 @@
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\bin\Debug\net8.0\OtelZone.DataAccess.deps.json
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\bin\Debug\net8.0\OtelZone.DataAccess.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\bin\Debug\net8.0\OtelZone.DataAccess.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\bin\Debug\net8.0\OtelZone.Entity.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\bin\Debug\net8.0\OtelZone.Entity.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.csproj.AssemblyReference.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.AssemblyInfoInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.AssemblyInfo.cs
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DA67D05F.Up2Date
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\refint\OtelZone.DataAccess.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\OtelZone.DataAccess.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.DataAccess\obj\Debug\net8.0\ref\OtelZone.DataAccess.dll

@@ -1,0 +1,48 @@
+﻿@model OtelZone.Entity.Entities.Review
+
+
+<form asp-action="PartialKullaniciYorum" asp-controller="Hotel" method="post" class="row clearfix">
+    <div class="col-sm-12 mr-2 mt-2">
+        <div class="form-group">
+            <textarea rows="4" class="form-control no-resize" placeholder="Otel Hakkındaki Yorumun..." asp-for="@Model.Comment"></textarea>
+        </div>
+        <br />
+        <div class="col-sm-6">
+            <p>Yıldız</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="yıl1" asp-for="@Model.Rating" value="1">
+                <label class="form-check-label" for="yıl1">
+                    <i class="bi bi-star-fill"></i>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="yıl2" asp-for="@Model.Rating" value="2">
+                <label class="form-check-label" for="yıl2">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="yıl3" asp-for="@Model.Rating" value="3">
+                <label class="form-check-label" for="yıl3">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="yıl4" asp-for="@Model.Rating" value="4">
+                <label class="form-check-label" for="yıl4">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="yıl5" asp-for="@Model.Rating" value="5">
+                <label class="form-check-label" for="yıl5">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </label>
+            </div>
+            <input type="hidden" asp-for="@Model.HotelId" value="@TempData["hotelid"]" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-block btn-primary">Gönder</button>
+        <br />
+    </div>
+</form>

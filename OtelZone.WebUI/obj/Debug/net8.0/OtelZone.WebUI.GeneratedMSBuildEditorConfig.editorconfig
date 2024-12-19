@@ -1,0 +1,141 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = OtelZone.WebUI
+build_property.RootNamespace = OtelZone.WebUI
+build_property.ProjectDir = C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.WebUI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.WebUI
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/adminotellistele.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxhZG1pbm90ZWxsaXN0ZWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/odaduzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxvZGFkdXplbmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/odaekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxvZGFla2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/odalistele.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxvZGFsaXN0ZWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/AdminPanel/otelduzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxvdGVsZHV6ZW5sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/anasayfa/gizlilikpolitikasi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYW5hc2F5ZmFcZ2l6bGlsaWtwb2xpdGlrYXNpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/anasayfa/hakkımızda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYW5hc2F5ZmFcaGFra8SxbcSxemRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/anasayfa/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYW5hc2F5ZmFcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/anasayfa/kullanimkosullari.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYW5hc2F5ZmFca3VsbGFuaW1rb3N1bGxhcmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Giris/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Giris/kullaniciduzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNca3VsbGFuaWNpZHV6ZW5sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Giris/uyelistele.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNcdXllbGlzdGVsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Giris/uyeol.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lyaXNcdXllb2wuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Hotel/detay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcZGV0YXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Hotel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Hotel/otelekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcb3RlbGVrbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Hotel/PartialKullaniciYorum.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcUGFydGlhbEt1bGxhbmljaVlvcnVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Rezervasyon/AdminRezerveListe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXN5b25cQWRtaW5SZXplcnZlTGlzdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Rezervasyon/ConfirmReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXN5b25cQ29uZmlybVJlc2VydmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Rezervasyon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXN5b25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Rezervasyon/mesaj.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXN5b25cbWVzYWouY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Rezervasyon/Rezervasyonlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXN5b25cUmV6ZXJ2YXN5b25saXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Shared/_AdminPanelLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblBhbmVsTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Shared/_otellisteLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9vdGVsbGlzdGVMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/UmutGuven/Desktop/OtelZone/OtelZone.WebUI/OtelZone.WebUI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-w9rkygvv9b

@@ -1,0 +1,106 @@
+﻿
+
+@model OtelZone.Entity.Entities.Room
+
+@{
+    Layout = "_AdminPanelLayout";
+}
+
+
+
+
+
+<style>
+    /* Tüm modal close butonları için genel stil */
+    .modal .close {
+        font-size: 1.5rem; /* Çarpı boyutu */
+        color: #333; /* Çarpı rengi */
+        opacity: 0.8; /* Hafif şeffaflık */
+        transition: color 0.3s, transform 0.3s; /* Geçiş efekti */
+        border: none; /* Çerçeve kaldır */
+        background: none; /* Varsayılan arka planı kaldır */
+        outline: none; /* Fokus kutusunu kaldır */
+        cursor: pointer; /* Fare simgesi */
+    }
+
+        .modal .close:hover {
+            color: #ff5e5e; /* Hover'da kırmızı ton */
+            transform: rotate(90deg); /* Hafif döndürme efekti */
+            opacity: 1; /* Şeffaflık kaldır */
+        }
+
+    /* Modal başlığına yer bırakma */
+    .modal .modal-title {
+        flex-grow: 1; /* Çarpı ile başlık arasını aç */
+        text-align: center; /* Başlığı ortala */
+        margin-right: 20px; /* Çarpıya mesafe ver */
+    }
+</style>
+
+
+
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm ">
+        </div>
+        <div class="col-sm mt-5">
+
+
+
+
+            <div class="card text-center">
+                <div class="card-header ">
+                    Otel Düzenle
+                </div>
+                <div class="card-body mt-3">
+                    <form method="post" asp-action="odaduzenle" asp-controller="AdminPanel">
+                        <div class="form-group">
+
+                            <input type="hidden" class="form-control mt-2" placeholder="Otel Adı" asp-for="RoomId" value="@Model.RoomId">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">Otel Adı</label>
+                            <input type="text" class="form-control mt-2" placeholder="Oda Tipi" asp-for="RoomType">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">Yatak Sayısı</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Adresi" asp-for="BedCount">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Fiyat</label>
+                            <input type="text" class="form-control mt-2" placeholder="Fiyat" asp-for="Price">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Oda Açıklaması</label>
+                            <input type="text" class="form-control mt-2" placeholder="Oda Açıklaması" asp-for="RoomDesc">
+                        </div>
+                  
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Oda Resim Linki</label>
+                            <input type="text" class="form-control mt-2" placeholder="Oda Resim Linki" asp-for="RoomImageUrl">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Oda Aktif Mi</label>
+                            <input type="text" class="form-control mt-2" placeholder="Oda Aktif Mi" asp-for="RoomIsAvilable">
+                        </div>
+                   
+
+
+                        <input type="submit" class="btn btn-primary mt-4" value="Odayı Düzenle" />
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm">
+        </div>
+    </div>
+</div>
+
+
+

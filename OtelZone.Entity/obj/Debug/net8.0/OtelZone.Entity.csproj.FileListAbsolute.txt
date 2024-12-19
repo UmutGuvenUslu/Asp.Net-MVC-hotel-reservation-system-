@@ -1,0 +1,14 @@
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\bin\Debug\net8.0\OtelZone.Entity.deps.json
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\bin\Debug\net8.0\OtelZone.Entity.runtimeconfig.json
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\bin\Debug\net8.0\OtelZone.Entity.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\bin\Debug\net8.0\OtelZone.Entity.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.csproj.AssemblyReference.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.AssemblyInfoInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.AssemblyInfo.cs
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.csproj.CoreCompileInputs.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\refint\OtelZone.Entity.dll
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.pdb
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\OtelZone.Entity.genruntimeconfig.cache
+C:\Users\UmutGuven\Desktop\OtelZone\OtelZone.WebUI\OtelZone.Entity\obj\Debug\net8.0\ref\OtelZone.Entity.dll

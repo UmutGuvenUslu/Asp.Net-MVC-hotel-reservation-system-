@@ -1,0 +1,306 @@
+﻿@model Tuple<OtelZone.Entity.Entities.Hotel,List<OtelZone.Entity.Entities.Review>,List<OtelZone.Entity.Entities.Room>>
+
+
+<head>
+    <link href="~/css/hoteldetail.css" rel="stylesheet" />
+
+</head>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div id="main-content" class="blog-page">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 left-box">
+                <div class="card single_post">
+                    <div class="body">
+                        <div class="img-post">
+                         <img class="d-block img-fluid" src="@Model.Item1.HotelImgUrl" style="object-fit=contain" />
+                        </div>
+                        <h3>Otel Açıklaması</h3>
+                        <h6> @Model.Item1.HotelDesc</h6>
+                        <p>@Model.Item1.HotelAdress</p>
+                        <p>@Model.Item1.HotelCreatedDate.ToString("dd-MMM-yyyy") Tarihinden beri sitede kayıtlı</p>
+         
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="header">
+                        <h2>Odalar</h2>
+                    </div>
+                    <div class="row d-flex">
+                        @if (Model.Item3 == null || !Model.Item3.Any())
+                        {
+                            <h1>Rezervasyon için Kullanıcı Girişi Yapmalısınız</h1>
+                        }
+                        else
+                        {
+                            bool uygunOdaVar = false; 
+
+                            @foreach (var item in Model.Item3)
+                            {
+                                @if (Model.Item1.HotelId == item.HotelId && item.RoomIsAvilable == true)
+                                {
+                                    uygunOdaVar = true; 
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+                                        <div class="card d-flex flex-column justify-content-between align-items-center" style="height: 98%;">
+                                            <img class="card-img-top img-thumbnail" src="@item.RoomImageUrl" style="width:300px; height:300px;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@item.RoomType</h5>
+                                                <p class="card-text">@item.RoomDesc</p>
+                                                <p class="card-text">Yatak Sayısı: @item.BedCount</p>
+                                                <p class="card-text">Ücret: @item.Price</p>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <form asp-action="CreateReservation" asp-controller="Rezervasyon" method="post">
+                                                        <input type="hidden" name="roomId" value="@item.RoomId" />
+                                                        <input type="hidden" name="hotelId" value="@item.Hotel.HotelName" />
+
+                                                        <button type="submit" class="btn btn-primary btn-md ">Rezervasyon Yap</button>
+
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-warning">Rezervasyon için Kullanıcı Girişi Yapmalısınız</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                          
+                            if (!uygunOdaVar)
+                            {
+                                <p class="text-danger">Bu otelde seçilen tarihler için uygun oda bulunmamaktadır.</p>
+                            }
+                        }
+                    </div>
+
+                @{
+                    var alertMessage = ViewBag.AlertMessage as string;
+                    if (!string.IsNullOrEmpty(alertMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @alertMessage
+                        </div>
+                    }
+                }
+
+            
+
+
+
+
+
+                <div class="card">
+                    <div class="header">
+                        <h2>Kullanici Yorumları</h2>
+                    </div>
+                    @foreach(var item in Model.Item2){
+                        <div class="body">
+                            <ul class="comment-reply list-unstyled">
+                                <li class="row clearfix">
+                                    <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Awesome Image"></div>
+                                    <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                        <h5 class="m-b-0">@item.User.UserName @item.User.UserSurname </h5>
+                                        <p>@item.Comment </p>
+                                        <ul class="list-inline">
+                                            <li>
+                                                @switch (item.Rating)
+                                                {
+
+                                                    case 1:
+                                                        <p>Yıldız:  <i class="bi bi-star-fill"></i></p>
+                                                        break;
+
+                                                    case 2:
+                                                        <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                                        break;
+
+                                                    case 3:
+                                                        <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                                        break;
+
+                                                    case 4:
+                                                        <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                                        break;
+
+                                                    case 5:
+                                                        <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                                        break;
+
+                                                    default:
+                                                        <p></p>
+                                                        break;
+                                                }
+                                            </li>
+                                            <li>@item.ReviewCreatedDate.ToString("dd-MMM-yyyy")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                            @if(item.User.UserName == User.Identity.Name || User.IsInRole("Admin")){
+                                <form method="post" asp-controller="Hotel" asp-action="yorumsil">
+                                    <input type="hidden" name="reviewid" value="@item.ReviewId" />
+                                    <input type="hidden" name="hotelId" value="@Model.Item1.HotelId" />
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        <i class="bi bi-trash-fill"></i> Sil
+                                    </button>
+                                </form>
+
+                            }
+                            
+                        </div>
+                    }
+                </div>
+                <div class="card">
+                    
+                        @if(User.Identity.IsAuthenticated==true){
+                        <div class="header">
+                        <h2>Yorum Yaz</h2><p>Tüm alanlar doldurulmak zorundadır.</p>
+                    </div>
+                    <div class="body">
+                        <div class="comment-form">
+                            
+                              <form asp-action="AddComment" asp-controller="Hotel" method="post" class="row clearfix">
+                                <div class="col-sm-12 mr-2 mt-2">
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Otel Hakkındaki Yorumun..." id="commentText" name="commentText"></textarea>
+                                        
+                                    </div>
+                                    <br />
+                                    <div class="col-sm-6">
+                                        <p>Yıldız</p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="rating1" name="rating" value="1">
+                                            <label class="form-check-label" for="rating1">
+                                                <i class="bi bi-star-fill"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="rating2" name="rating" value="2">
+                                            <label class="form-check-label" for="rating2">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="rating3" name="rating" value="3">
+                                            <label class="form-check-label" for="rating3">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="rating4" name="rating" value="4">
+                                            <label class="form-check-label" for="rating4">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="rating5" name="rating" value="5">
+                                            <label class="form-check-label" for="rating5">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </label>
+                                        </div>
+                                          <input type="hidden" name="hotelId" value="@Model.Item1.HotelId" />
+                                        
+                                    </div>
+                                    <br />
+                                    <button type="submit" class="btn btn-block btn-primary">Gönder</button>
+                                    <br />
+                                </div>
+                            </form>
+
+                           
+                          
+                        </div>
+
+                    </div>
+                        }
+                        else
+                        {
+                        <h2>Yorum Yaz</h2>
+
+                        <p>Yorum yazmak için üye olmak gereklidir.</p>
+                        }
+                </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 right-box">
+              <div class="card">
+                    <div class="header">
+                        <h2>@Model.Item1.HotelName</h2>
+                        @switch (Model.Item1.Rating)
+                        {
+
+                            case 1:
+                                <p>Yıldız:  <i class="bi bi-star-fill"></i></p>
+                                break;
+
+                            case 2:
+                                <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                break;
+
+                            case 3:
+                                <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                break;
+
+                            case 4:
+                                <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                break;
+
+                            case 5:
+                                <p>Yıldız:  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                                break;
+
+                            default:
+                                <p></p>
+                                break;
+                        }
+                    </div>
+                    <div class="body widget"">
+                     
+                        <div class="header" >
+                            <h2>Otel İmkanları</h2>
+                        </div>
+                        <div class="body widget popular-post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="single_post">
+                                        @foreach (var item in Model.Item1.HotelFacilities.Split(','))
+                                        {
+                                            <p class="m-b-0"><i class="bi bi-dot"></i> @item</p>
+                                        }
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    
+                   
+                    
+                <div class="body widget">
+
+                </div>
+
+
+
+
+            </div>
+              
+                
+            </div>
+        </div>
+
+    </div>

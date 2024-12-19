@@ -1,0 +1,204 @@
+﻿@{
+    Layout = "_AdminPanelLayout";
+}
+
+
+
+@model OtelZone.Entity.Entities.Hotel
+
+
+
+
+
+<style>
+    /* Tüm modal close butonları için genel stil */
+    .modal .close {
+        font-size: 1.5rem; /* Çarpı boyutu */
+        color: #333; /* Çarpı rengi */
+        opacity: 0.8; /* Hafif şeffaflık */
+        transition: color 0.3s, transform 0.3s; /* Geçiş efekti */
+        border: none; /* Çerçeve kaldır */
+        background: none; /* Varsayılan arka planı kaldır */
+        outline: none; /* Fokus kutusunu kaldır */
+        cursor: pointer; /* Fare simgesi */
+    }
+
+        .modal .close:hover {
+            color: #ff5e5e; /* Hover'da kırmızı ton */
+            transform: rotate(90deg); /* Hafif döndürme efekti */
+            opacity: 1; /* Şeffaflık kaldır */
+        }
+
+    /* Modal başlığına yer bırakma */
+    .modal .modal-title {
+        flex-grow: 1; /* Çarpı ile başlık arasını aç */
+        text-align: center; /* Başlığı ortala */
+        margin-right: 20px; /* Çarpıya mesafe ver */
+    }
+</style>
+
+
+
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm ">
+        </div>
+        <div class="col-sm mt-5">
+
+
+
+
+            <div class="card text-center">
+                <div class="card-header ">
+                    Hotel Ekle
+                </div>
+                <div class="card-body mt-3">
+                    <form method="post" asp-action="otelekle" asp-controller="Hotel">
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">Otel Adı</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Adı" asp-for="HotelName">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput">Otel Adresi</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Adresi" asp-for="HotelAdress">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Rating</label>
+                            <input type="text" class="form-control mt-2" placeholder="Rating" asp-for="Rating">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel Açıklaması</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Açıklaması" asp-for="HotelDesc">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel İmkanları</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel İmkanları" asp-for="HotelFacilities">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel Resim Linki</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Resim Linki" asp-for="HotelImgUrl">
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel Aktif Mi</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Aktif Mi" asp-for="HotelIsActive">
+                        </div>
+                        @* <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel Şehir Plakası</label>
+                            <input type="text" class="form-control mt-2" placeholder="Otel Şehir Plakası" asp-for="CityId">
+                        </div> *@
+                        <div class="form-group">
+                            <label class="mt-2" for="CityId">Otel Şehri</label>
+                            @Html.DropDownList("CityId", (SelectList)ViewBag.Cities, "Select a City", new { @class = "form-control", @id = "cityDropdown2" })
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-2" for="formGroupExampleInput2">Otel İlçe</label>
+                            @Html.DropDownList("DistrictId", new SelectList(Enumerable.Empty<SelectListItem>()), "Select a District", new { @class = "form-control", @id = "districtDropdown2" })
+                        </div>
+
+
+
+                        <input type="submit" class="btn btn-primary mt-4" value="Otel Oluştur" />
+                    </form>
+
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-sm">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@if (ViewBag.Hata == true)
+{
+    <div class="modal fade show d-block " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Hatalı Giriş</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick=" closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Hatalı Üye Olma İşlemi
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick=" closeModal()">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script>
+    function closeModal() {
+        var modal = document.getElementById('exampleModalCenter');
+        modal.classList.remove('show', 'd-block'); 
+        modal.setAttribute('aria-hidden', 'true');
+                   setTimeout(() => {
+                       modal.style.display = "none";
+                     }, 500); // Efekt süresi kadar bekle
+
+
+
+            }
+
+
+
+</script>
+
+
+
+@*Şehire Göre İlçe Seçen Dinamik Kod*@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cityDropdown2').change(function () {
+            var cityId = $(this).val(); // Seçilen CityId
+            if (cityId) {
+                $.ajax({
+                    url: '@Url.Action("GetDistrictsByCityId", "Hotel")',
+                    data: { cityId: cityId },
+                    type: 'POST',
+                    success: function (data) {
+                        // Gelen veriyi kontrol et
+                        var districtDropdown2 = $('#districtDropdown2');
+                        districtDropdown2.empty(); // Önceki değerleri temizle
+
+                        if (data && data.length > 0) {
+                            districtDropdown2.append('<option value="">Select a District</option>'); // İlk seçeneği ekle
+
+                            // Gelen verilere göre districtleri ekle
+                            $.each(data, function (index, district) {
+                               
+                                districtDropdown2.append('<option value="' + district.districtId + '">' + district.districtName + '</option>');
+                            });
+                        } else {
+                            districtDropdown2.append('<option value="">No districts available</option>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error: " + error); 
+                    }
+                });
+            } else {
+                $('#districtDropdown2').empty();
+                $('#districtDropdown2').append('<option value="">Select a District</option>');
+            }
+        });
+    });
+</script>
